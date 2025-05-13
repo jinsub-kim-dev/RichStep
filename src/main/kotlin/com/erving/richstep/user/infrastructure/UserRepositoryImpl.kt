@@ -1,0 +1,24 @@
+package com.erving.richstep.user.infrastructure
+
+import com.erving.richstep.user.domain.User
+import com.erving.richstep.user.exception.UserNotFoundException
+import com.erving.richstep.user.service.port.UserRepository
+import org.springframework.data.repository.findByIdOrNull
+import org.springframework.stereotype.Repository
+
+@Repository
+class UserRepositoryImpl(
+    private val userJpaRepository: UserJpaRepository
+) : UserRepository {
+
+    override fun save(user: User): User {
+        var userEntity = UserEntity.fromModel(user)
+        userEntity = this.userJpaRepository.save(userEntity)
+        return userEntity.toModel()
+    }
+
+    override fun findById(id: Long): User? {
+        val userEntity = this.userJpaRepository.findByIdOrNull(id)
+        return userEntity?.toModel()
+    }
+}
