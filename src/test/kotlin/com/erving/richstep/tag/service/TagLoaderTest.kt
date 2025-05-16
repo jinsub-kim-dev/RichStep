@@ -32,7 +32,7 @@ class TagLoaderTest {
         val tags = this.tagLoader.load(user, listOf("식비", "교통"))
 
         // then
-        assertThat(tags.size).isEqualTo(2)
+        assertThat(tags).hasSize(2)
         assertThat(tags.any { it.name == "식비" && it.id != null && it.id == 1L }).isTrue()
         assertThat(tags.any { it.name == "교통" && it.id != null && it.id == 2L }).isTrue()
     }
