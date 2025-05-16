@@ -1,6 +1,7 @@
-package com.erving.richstep.user.service.port
+package com.erving.richstep.mock
 
 import com.erving.richstep.user.domain.User
+import com.erving.richstep.user.service.port.UserRepository
 
 class FakeUserRepository : UserRepository {
 

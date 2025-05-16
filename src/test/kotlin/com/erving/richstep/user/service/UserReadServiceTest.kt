@@ -2,7 +2,7 @@ package com.erving.richstep.user.service
 
 import com.erving.richstep.user.domain.User
 import com.erving.richstep.user.exception.UserNotFoundException
-import com.erving.richstep.user.service.port.FakeUserRepository
+import com.erving.richstep.mock.FakeUserRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.BeforeEach

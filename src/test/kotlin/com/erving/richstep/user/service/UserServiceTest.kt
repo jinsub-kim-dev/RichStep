@@ -1,7 +1,7 @@
 package com.erving.richstep.user.service
 
 import com.erving.richstep.user.domain.UserCreate
-import com.erving.richstep.user.service.port.FakeUserRepository
+import com.erving.richstep.mock.FakeUserRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import kotlin.test.Test

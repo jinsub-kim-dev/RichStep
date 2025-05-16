@@ -1,6 +1,7 @@
-package com.erving.richstep.tag.service.port
+package com.erving.richstep.mock
 
 import com.erving.richstep.tag.domain.Tag
+import com.erving.richstep.tag.service.port.TagRepository
 import com.erving.richstep.user.domain.User
 
 class FakeTagRepository : TagRepository {
