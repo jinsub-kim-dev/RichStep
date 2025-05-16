@@ -7,7 +7,7 @@ import com.erving.richstep.tag.service.port.TagServiceImpl
 import com.erving.richstep.user.domain.User
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
-import kotlin.test.Test
+import org.junit.jupiter.api.Test
 
 class TagLoaderTest {
 

@@ -6,8 +6,8 @@ import com.erving.richstep.mock.FakeUserRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import java.time.LocalDateTime
-import kotlin.test.Test
 
 class UserReadServiceTest {
 
