@@ -5,4 +5,6 @@ import com.erving.richstep.transaction.domain.Transaction
 interface TransactionRepository {
 
     fun save(transaction: Transaction): Transaction
+
+    fun findById(id: Long): Transaction?
 }

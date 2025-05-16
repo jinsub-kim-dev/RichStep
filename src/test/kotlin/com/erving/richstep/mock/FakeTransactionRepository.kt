@@ -23,4 +23,8 @@ class FakeTransactionRepository : TransactionRepository {
             transaction
         }
     }
+
+    override fun findById(id: Long): Transaction? {
+        return this.data.find { it.id == id }
+    }
 }
