@@ -6,7 +6,7 @@ import com.erving.richstep.mock.FakeUserRepository
 import com.erving.richstep.tag.domain.Tag
 import com.erving.richstep.tag.service.TagLoaderImpl
 import com.erving.richstep.tag.service.TagReadServiceImpl
-import com.erving.richstep.tag.service.port.TagServiceImpl
+import com.erving.richstep.tag.service.TagServiceImpl
 import com.erving.richstep.transaction.domain.TransactionCreate
 import com.erving.richstep.transaction.domain.TransactionType
 import com.erving.richstep.user.domain.LoginedUser
