@@ -1,7 +1,9 @@
 package com.erving.richstep.mock
 
+import com.erving.richstep.transaction.domain.TransactionSearchCondition
 import com.erving.richstep.transaction.domain.Transaction
 import com.erving.richstep.transaction.service.port.TransactionRepository
+import com.erving.richstep.user.domain.User
 
 class FakeTransactionRepository : TransactionRepository {
 
@@ -26,5 +28,17 @@ class FakeTransactionRepository : TransactionRepository {
 
     override fun findById(id: Long): Transaction? {
         return this.data.find { it.id == id }
+    }
+
+    override fun findByCondition(user: User, condition: TransactionSearchCondition): List<Transaction> {
+        val dateRange = condition.dateCondition?.resolve()
+
+        return data.filter { transaction ->
+            transaction.user.id == user.id &&
+            dateRange?.let { (from, to) -> transaction.date in from..to } ?: true &&
+            condition.tag?.let { tagName ->
+                transaction.transactionTags.any {it.tag.name == tagName}
+            } ?: true
+        }
     }
 }
