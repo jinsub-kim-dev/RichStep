@@ -9,6 +9,14 @@ interface TagJpaRepository : JpaRepository<TagEntity, Long> {
     @Query("""
         SELECT t FROM TagEntity t
         WHERE t.user.id = :userId
+    """)
+    fun findAllByUserId(
+        @Param("userId") userId: Long
+    ): List<TagEntity>
+
+    @Query("""
+        SELECT t FROM TagEntity t
+        WHERE t.user.id = :userId
         AND t.name IN :names
     """)
     fun findAllByUserIdAndNameIn(

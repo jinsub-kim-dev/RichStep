@@ -16,6 +16,11 @@ class TagRepositoryImpl(
         return tagEntity.toModel()
     }
 
+    override fun findAllByUser(user: User): List<Tag> {
+        return this.tagJpaRepository.findAllByUserId(user.id!!)
+            .map { it.toModel() }
+    }
+
     override fun findAllByUserAndNames(user: User, tagNames: List<String>): List<Tag> {
         return this.tagJpaRepository.findAllByUserIdAndNameIn(user.id!!, tagNames)
             .map { it.toModel() }

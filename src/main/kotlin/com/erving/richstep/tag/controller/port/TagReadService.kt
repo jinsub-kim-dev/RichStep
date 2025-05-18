@@ -5,5 +5,7 @@ import com.erving.richstep.user.domain.User
 
 interface TagReadService {
 
+    fun findAllByUser(user: User): List<Tag>
+
     fun findAllByUserAndNames(user: User, tagNames: List<String>): List<Tag>
 }

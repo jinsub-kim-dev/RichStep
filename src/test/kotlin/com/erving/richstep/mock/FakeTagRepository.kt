@@ -26,6 +26,10 @@ class FakeTagRepository : TagRepository {
         }
     }
 
+    override fun findAllByUser(user: User): List<Tag> {
+        return data.filter { it.user.id == user.id }
+    }
+
     override fun findAllByUserAndNames(
         user: User,
         tagNames: List<String>

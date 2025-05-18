@@ -11,6 +11,10 @@ class TagReadServiceImpl(
     private val tagRepository: TagRepository
 ) : TagReadService {
 
+    override fun findAllByUser(user: User): List<Tag> {
+        return tagRepository.findAllByUser(user)
+    }
+
     override fun findAllByUserAndNames(user: User, tagNames: List<String>): List<Tag> {
         return tagRepository.findAllByUserAndNames(user, tagNames)
     }

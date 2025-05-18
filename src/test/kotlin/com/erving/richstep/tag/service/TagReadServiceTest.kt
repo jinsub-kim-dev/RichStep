@@ -25,6 +25,32 @@ class TagReadServiceTest {
     }
 
     @Test
+    fun user의_모든_Tag를_조회할_수_있다() {
+        // given
+        val user = User(id = 1L, email = "test@user.com")
+
+        // when
+        val foundTags = this.tagReadService.findAllByUser(user)
+
+        // then
+        assertThat(foundTags).allSatisfy {
+            assertThat(it.user.id).isEqualTo(user.id)
+        }
+    }
+
+    @Test
+    fun 다른_user의_tag는_조회할_수_없다() {
+        // given
+        val user = User(id = 999L, email = "not.exist@user.com")
+
+        // when
+        val foundTags = this.tagReadService.findAllByUser(user)
+
+        // then
+        assertThat(foundTags).isEmpty()
+    }
+
+    @Test
     fun user와_tagName이_일치하는_모든_Tag를_조회할_수_있다() {
         // given
         val user = User(id = 1L, email = "test@user.com")

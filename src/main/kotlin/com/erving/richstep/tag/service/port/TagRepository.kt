@@ -7,5 +7,7 @@ interface TagRepository {
 
     fun save(tag: Tag): Tag
 
+    fun findAllByUser(user: User): List<Tag>
+
     fun findAllByUserAndNames(user: User, tagNames: List<String>): List<Tag>
 }
