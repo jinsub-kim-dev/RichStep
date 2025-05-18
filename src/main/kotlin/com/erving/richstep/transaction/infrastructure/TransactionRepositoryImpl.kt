@@ -41,7 +41,8 @@ class TransactionRepositoryImpl(
                 qTransactionEntity.user.id.eq(user.id),
                 start?.let { qTransactionEntity.date.goe(it) },
                 end?.let { qTransactionEntity.date.loe(it) },
-                condition.tag?.let { qTagEntity.name.eq(it) }
+                condition.tag?.let { qTagEntity.name.eq(it) },
+                condition.type?.let { qTransactionEntity.type.eq(it) }
             )
             .distinct()
             .orderBy(qTransactionEntity.date.desc())

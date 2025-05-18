@@ -38,7 +38,8 @@ class FakeTransactionRepository : TransactionRepository {
             dateRange?.let { (from, to) -> transaction.date in from..to } ?: true &&
             condition.tag?.let { tagName ->
                 transaction.transactionTags.any {it.tag.name == tagName}
-            } ?: true
+            } ?: true &&
+            condition.type?.let { transactionType -> transaction.type == transactionType } ?: true
         }
     }
 }

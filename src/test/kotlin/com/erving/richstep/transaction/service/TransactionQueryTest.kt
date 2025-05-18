@@ -211,4 +211,36 @@ class TransactionQueryTest {
             assertThat(tx.transactionTags.map { it.tag.name }).contains(searchTag)
         }
     }
+
+    @Test
+    fun 지출_목록만_조회할_수_있다() {
+        // given
+        val user = User(id = 1L, email = "test@user.com")
+        val searchType = TransactionType.EXPENSE
+        val condition = TransactionSearchCondition(type = searchType)
+
+        // when
+        val searchedTransactions = this.transactionQuery.search(user, condition)
+
+        // then
+        assertThat(searchedTransactions).allSatisfy {
+            assertThat(it.type).isEqualTo(searchType)
+        }
+    }
+
+    @Test
+    fun 수입_목록만_조회할_수_있다() {
+        // given
+        val user = User(id = 1L, email = "test@user.com")
+        val searchType = TransactionType.INCOME
+        val condition = TransactionSearchCondition(type = searchType)
+
+        // when
+        val searchedTransactions = this.transactionQuery.search(user, condition)
+
+        // then
+        assertThat(searchedTransactions).allSatisfy {
+            assertThat(it.type).isEqualTo(searchType)
+        }
+    }
 }
