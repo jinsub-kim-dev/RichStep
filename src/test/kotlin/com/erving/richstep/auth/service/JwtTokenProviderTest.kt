@@ -1,11 +1,11 @@
-package com.erving.richstep.auth.jwt
+package com.erving.richstep.auth.service
 
 import com.erving.richstep.domain.auth.service.JwtTokenProvider
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import io.jsonwebtoken.security.Keys
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
@@ -26,8 +26,8 @@ class JwtTokenProviderTest(
         val parsedId = jwtTokenProvider.getUserId(token)
         val parsedEmail = jwtTokenProvider.getEmail(token)
 
-        assertEquals(1L, parsedId)
-        assertEquals("test@example.com", parsedEmail)
+        Assertions.assertEquals(1L, parsedId)
+        Assertions.assertEquals("test@example.com", parsedEmail)
     }
 
     @Test
