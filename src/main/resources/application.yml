@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: richstep
+  datasource:
+    url: jdbc:mysql://localhost:3306/richstep?useSSL=false&serverTimezone=Asia/Seoul
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+jwt:
+  secret: my-super-secret-key-that-should-be-very-long
+  expiration: 3600000 # 1시간 (ms)
