@@ -1,7 +1,8 @@
 package com.erving.richstep.user.service
 
-import com.erving.richstep.user.domain.User
-import com.erving.richstep.user.exception.UserNotFoundException
+import com.erving.richstep.domain.user.domain.User
+import com.erving.richstep.domain.user.exception.UserNotFoundException
+import com.erving.richstep.domain.user.service.UserReadServiceImpl
 import com.erving.richstep.mock.FakeUserRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
@@ -19,11 +20,12 @@ class UserReadServiceTest {
         this.userReadService = UserReadServiceImpl(fakeUserRepository)
 
         fakeUserRepository.save(User(
-            id = 1,
-            email = "erving.kim@naver.com",
-            createdAt = LocalDateTime.now(),
-            modifiedAt = LocalDateTime.now()
-        ))
+                id = 1,
+                email = "erving.kim@naver.com",
+                createdAt = LocalDateTime.now(),
+                modifiedAt = LocalDateTime.now()
+            )
+        )
 
         fakeUserRepository.save(User(
             id = 2,

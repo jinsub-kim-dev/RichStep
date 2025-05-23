@@ -1,15 +1,12 @@
 package com.erving.richstep.transaction.service
 
+import com.erving.richstep.domain.tag.domain.Tag
+import com.erving.richstep.domain.transaction.domain.*
+import com.erving.richstep.domain.transaction.service.TransactionQueryImpl
+import com.erving.richstep.domain.user.domain.User
 import com.erving.richstep.mock.FakeTagRepository
 import com.erving.richstep.mock.FakeTransactionRepository
 import com.erving.richstep.mock.FakeUserRepository
-import com.erving.richstep.tag.domain.Tag
-import com.erving.richstep.transaction.domain.DateCondition
-import com.erving.richstep.transaction.domain.Transaction
-import com.erving.richstep.transaction.domain.TransactionSearchCondition
-import com.erving.richstep.transaction.domain.TransactionTag
-import com.erving.richstep.transaction.domain.TransactionType
-import com.erving.richstep.user.domain.User
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -37,10 +34,11 @@ class TransactionQueryTest {
         val tag4 = fakeTagRepository.save(Tag(user = user, name = "월급"))
 
         fakeTransactionRepository.save(Transaction(
-            user = user, date = LocalDateTime.of(2025, 5, 1, 11, 28),
-            amount = BigDecimal("20000"), type = TransactionType.EXPENSE, description = "점심 식사",
-            transactionTags = mutableListOf(TransactionTag(id = 1L, tag = tag1))
-        ))
+                user = user, date = LocalDateTime.of(2025, 5, 1, 11, 28),
+                amount = BigDecimal("20000"), type = TransactionType.EXPENSE, description = "점심 식사",
+                transactionTags = mutableListOf(TransactionTag(id = 1L, tag = tag1))
+            )
+        )
         fakeTransactionRepository.save(Transaction(
             user = user, date = LocalDateTime.of(2025, 5, 5, 19, 10),
             amount = BigDecimal("25000"), type = TransactionType.EXPENSE, description = "치킨 주문",

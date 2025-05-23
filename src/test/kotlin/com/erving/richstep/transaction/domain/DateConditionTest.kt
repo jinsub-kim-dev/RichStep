@@ -1,6 +1,7 @@
 package com.erving.richstep.transaction.domain
 
-import com.erving.richstep.transaction.exception.InvalidDateException
+import com.erving.richstep.domain.transaction.domain.DateCondition
+import com.erving.richstep.domain.transaction.exception.InvalidDateException
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test

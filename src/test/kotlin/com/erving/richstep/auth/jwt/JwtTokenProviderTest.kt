@@ -1,5 +1,6 @@
 package com.erving.richstep.auth.jwt
 
+import com.erving.richstep.domain.auth.jwt.JwtTokenProvider
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
