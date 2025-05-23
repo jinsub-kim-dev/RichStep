@@ -5,6 +5,7 @@ import com.erving.richstep.domain.user.domain.User
 import jakarta.persistence.*
 
 @Entity
+@Table(name = "user")
 class UserEntity(
     email: String
 ) : BaseTimeEntity() {
