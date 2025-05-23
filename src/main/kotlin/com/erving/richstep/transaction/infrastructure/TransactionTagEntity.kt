@@ -1,7 +1,6 @@
 package com.erving.richstep.transaction.infrastructure
 
 import com.erving.richstep.tag.infrastructure.TagEntity
-import com.erving.richstep.transaction.domain.Transaction
 import com.erving.richstep.transaction.domain.TransactionTag
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -18,6 +17,10 @@ class TransactionTagEntity(
     val id: Long? = null,
 
     @ManyToOne
+    @JoinColumn(name = "transaction_id")
+    val transaction: TransactionEntity,
+
+    @ManyToOne
     @JoinColumn(name = "tag_id")
     val tag: TagEntity
 ) {
@@ -25,14 +28,16 @@ class TransactionTagEntity(
     fun toModel(): TransactionTag {
         return TransactionTag(
             id = this.id,
+            transactionId = this.transaction.id,
             tag = this.tag.toModel()
         )
     }
 
     companion object {
-        fun fromModel(transactionTag: TransactionTag): TransactionTagEntity {
+        fun from(transactionTag: TransactionTag, transactionEntity: TransactionEntity): TransactionTagEntity {
             return TransactionTagEntity(
                 id = transactionTag.id,
+                transaction = transactionEntity,
                 tag = TagEntity.fromModel(transactionTag.tag)
             )
         }
