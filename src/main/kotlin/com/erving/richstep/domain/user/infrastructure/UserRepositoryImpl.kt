@@ -20,4 +20,9 @@ class UserRepositoryImpl(
         val userEntity = this.userJpaRepository.findByIdOrNull(id)
         return userEntity?.toModel()
     }
+
+    override fun findByEmail(email: String): User? {
+        val userEntity = this.userJpaRepository.findByEmail(email)
+        return userEntity?.toModel()
+    }
 }

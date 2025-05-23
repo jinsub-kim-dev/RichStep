@@ -5,4 +5,6 @@ import com.erving.richstep.domain.user.domain.User
 interface UserReadService {
 
     fun getById(id: Long): User
+
+    fun getByEmail(email: String): User
 }

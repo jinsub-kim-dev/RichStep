@@ -15,4 +15,9 @@ class UserReadServiceImpl(
         return this.userRepository.findById(id)
             ?: throw UserNotFoundException()
     }
+
+    override fun getByEmail(email: String): User {
+        return this.userRepository.findByEmail(email)
+            ?: throw UserNotFoundException()
+    }
 }

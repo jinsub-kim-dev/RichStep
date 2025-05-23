@@ -27,4 +27,8 @@ class FakeUserRepository : UserRepository {
     override fun findById(id: Long): User? {
         return this.data.find { it.id == id }
     }
+
+    override fun findByEmail(email: String): User? {
+        return this.data.find { it.email == email }
+    }
 }
