@@ -1,4 +1,4 @@
-package com.erving.richstep.domain.auth.jwt
+package com.erving.richstep.domain.auth.service
 
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jws
