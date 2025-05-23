@@ -1,4 +1,4 @@
-package com.erving.richstep.config
+package com.erving.richstep.base.config
 
 import com.querydsl.jpa.impl.JPAQueryFactory
 import jakarta.persistence.EntityManager
