@@ -7,7 +7,7 @@ import com.erving.richstep.domain.tag.service.TagServiceImpl
 import com.erving.richstep.domain.transaction.domain.TransactionCreate
 import com.erving.richstep.domain.transaction.domain.TransactionType
 import com.erving.richstep.domain.transaction.service.TransactionServiceImpl
-import com.erving.richstep.domain.user.domain.LoginedUser
+import com.erving.richstep.domain.auth.domain.LoginedUser
 import com.erving.richstep.domain.user.domain.User
 import com.erving.richstep.domain.user.service.UserReadServiceImpl
 import com.erving.richstep.mock.FakeTagRepository
@@ -49,7 +49,7 @@ class TransactionServiceTest {
     @Test
     fun transactionCreate를_이용하여_새로운_Transaction을_생성할_수_있다() {
         // given
-        val loginedUser = LoginedUser(id = 1L)
+        val loginedUser = LoginedUser(id = 1L, email = "test@user.com")
         val date = LocalDateTime.now()
         val transactionCreate = TransactionCreate(
             date = date,

@@ -6,7 +6,7 @@ import com.erving.richstep.domain.transaction.domain.Transaction
 import com.erving.richstep.domain.transaction.domain.TransactionCreate
 import com.erving.richstep.domain.transaction.service.port.TransactionRepository
 import com.erving.richstep.domain.user.controller.port.UserReadService
-import com.erving.richstep.domain.user.domain.LoginedUser
+import com.erving.richstep.domain.auth.domain.LoginedUser
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 
